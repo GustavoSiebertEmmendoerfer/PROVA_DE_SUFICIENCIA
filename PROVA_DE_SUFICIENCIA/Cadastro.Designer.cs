@@ -295,18 +295,18 @@
         }
 
         #endregion
-        private Label lblEscola;
-        private Label lblRG;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private CheckBox checkIdoso;
-        private CheckBox checkEstudante;
-        private Button registrar_pessoa;
-        private TextBox txtNome;
-        private ComboBox comboBox1;
-        private MaskedTextBox mskTxtRg;
-        private TextBox txtEscola;
-        private MaskedTextBox mskTxtTelefone;
+        public Label lblEscola;
+        public Label lblRG;
+        public Label label3;
+        public Label label2;
+        public Label label1;
+        public CheckBox checkIdoso;
+        public CheckBox checkEstudante;
+        public Button registrar_pessoa;
+        public TextBox txtNome;
+        public ComboBox comboBox1;
+        public MaskedTextBox mskTxtRg;
+        public TextBox txtEscola;
+        public MaskedTextBox mskTxtTelefone;
     }
 }

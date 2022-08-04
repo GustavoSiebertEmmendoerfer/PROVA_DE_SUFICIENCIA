@@ -19,6 +19,10 @@ namespace PROVA_DE_SUFICIENCIA.Entities
             Telefone = telefone;
             Idade = idade;
         }
+        public Passageiro()
+        {
+
+        }
 
         public virtual float GetTarifa()
         {

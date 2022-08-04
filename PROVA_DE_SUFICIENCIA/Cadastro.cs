@@ -14,10 +14,10 @@ namespace PROVA_DE_SUFICIENCIA
     public partial class Cadastro : Form
     {
 
-        private readonly Viagem viagem;
+        private readonly Viagem _viagem;
         public Cadastro(Viagem _empresa)
         {
-            this.viagem = _empresa;
+            _viagem = _empresa;
             InitializeComponent();
         }
 
@@ -98,7 +98,7 @@ namespace PROVA_DE_SUFICIENCIA
             }
         }
 
-        private bool ValidarCampos()
+        public bool ValidarCampos()
         {
             var valido = true;
             if (txtNome.Text.Length < 1 || txtNome.Text.Length > 100)
@@ -128,7 +128,7 @@ namespace PROVA_DE_SUFICIENCIA
             }
             if (checkIdoso.Checked & int.Parse(comboBox1.SelectedItem.ToString()) < 60)
             {
-                throw new ArgumentException("Idoso nao qualificado");
+                throw new ArgumentException("Idoso não qualificado");
             }
 
             return valido;
@@ -148,7 +148,7 @@ namespace PROVA_DE_SUFICIENCIA
                     else
                         passageiro = new Passageiro(txtNome.Text, mskTxtTelefone.Text, int.Parse(comboBox1.SelectedItem.ToString()));
 
-                    viagem.AddPassageiro(passageiro);
+                    _viagem.AddPassageiro(passageiro);
                 }
                 else
                 {
