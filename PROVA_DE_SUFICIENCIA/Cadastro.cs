@@ -126,27 +126,38 @@ namespace PROVA_DE_SUFICIENCIA
                 txtEscola.Focus();
                 valido = false;
             }
+            if (checkIdoso.Checked & int.Parse(comboBox1.SelectedItem.ToString()) < 60)
+            {
+                throw new ArgumentException("Idoso nao qualificado");
+            }
 
             return valido;
         }
 
         private void registrar_pessoa_Click(object sender, EventArgs e)
         {
-            if (ValidarCampos())
+            try
             {
-                Passageiro passageiro;
-                if (checkIdoso.Checked)
-                    passageiro = new Idoso(txtNome.Text, mskTxtTelefone.Text, int.Parse(comboBox1.SelectedItem.ToString()), mskTxtRg.Text);
-                else if (checkEstudante.Checked)
-                    passageiro = new Estudante(txtNome.Text, mskTxtTelefone.Text, int.Parse(comboBox1.SelectedItem.ToString()), txtEscola.Text);
-                else
-                    passageiro = new Passageiro(txtNome.Text, mskTxtTelefone.Text, int.Parse(comboBox1.SelectedItem.ToString()));
+                if (ValidarCampos())
+                {
+                    Passageiro passageiro;
+                    if (checkIdoso.Checked)
+                        passageiro = new Idoso(txtNome.Text, mskTxtTelefone.Text, int.Parse(comboBox1.SelectedItem.ToString()), mskTxtRg.Text);
+                    else if (checkEstudante.Checked)
+                        passageiro = new Estudante(txtNome.Text, mskTxtTelefone.Text, int.Parse(comboBox1.SelectedItem.ToString()), txtEscola.Text);
+                    else
+                        passageiro = new Passageiro(txtNome.Text, mskTxtTelefone.Text, int.Parse(comboBox1.SelectedItem.ToString()));
 
-                viagem.AddPassageiro(passageiro);
+                    viagem.AddPassageiro(passageiro);
+                }
+                else
+                {
+                    MessageBox.Show("Alguns campos foram prenchidos de forma errada");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Alguns campos foram prenchidos de forma errada");
+                MessageBox.Show(ex.Message);
             }
         }
     }

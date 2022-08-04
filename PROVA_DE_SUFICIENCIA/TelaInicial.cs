@@ -36,7 +36,7 @@ namespace PROVA_DE_SUFICIENCIA
 
         private void GraficoCSV_Click(object sender, EventArgs e)
         {
-            var grafico = new Grafico(viagem);
+            var grafico = new Grafico(viagem, viagens);
             grafico.Show();
         }
 

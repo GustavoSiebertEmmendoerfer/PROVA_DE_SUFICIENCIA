@@ -8,6 +8,7 @@ namespace PROVA_DE_SUFICIENCIA.Entities
 {
     public abstract class Viagem
     {
+        public virtual int totalDePassageiros { get; set; }
         public string PlacaOnibus { get; set; }
         public string NomeMotorista { get; set; }
         public DateTime DataViagem { get; set; }
@@ -18,7 +19,7 @@ namespace PROVA_DE_SUFICIENCIA.Entities
         {
             Passageiros.Add(passageiro);
         }
-        public float GetValorTotal()
+        public virtual float GetValorTotal()
         {
             return Passageiros.Select(x => x.GetTarifa()).Sum();
         }
@@ -30,11 +31,6 @@ namespace PROVA_DE_SUFICIENCIA.Entities
             DataViagem = dataViagem;
             HoraViagem = horaViagem;
             Passageiros = new List<Passageiro>();
-        }
-
-        public void GerarArquivoCSV()
-        {
-
         }
     }
 }
